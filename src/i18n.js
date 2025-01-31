@@ -12,6 +12,8 @@ import enClassesSection from "./locales/en/homepage/classessection.json";
 import arClassesSection from "./locales/ar/homepage/classessection.json";
 import enClassPage from "./locales/en/classpage.json";
 import arClassPage from "./locales/ar/classpage.json";
+import enCourseContent from "./locales/en/coursecontent.json";
+import arCourseContent from "./locales/ar/coursecontent.json";
 
 // Retrieve the language from localStorage, default to 'en' if not found
 const savedLanguage = localStorage.getItem("language") || "en";
@@ -25,6 +27,7 @@ i18n.use(initReactI18next).init({
       "homepage/testimonialssection": enTestimonialsSection,
       "homepage/classessection": enClassesSection,
       classpage: enClassPage,
+      coursecontent: enCourseContent, 
     },
     ar: {
       common: arCommon,
@@ -33,6 +36,7 @@ i18n.use(initReactI18next).init({
       "homepage/testimonialssection": arTestimonialsSection,
       "homepage/classessection": arClassesSection,
       classpage: arClassPage,
+      coursecontent: arCourseContent, 
     },
   },
   lng: savedLanguage, // Use the saved language

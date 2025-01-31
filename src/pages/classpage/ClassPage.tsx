@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Clock, User, Calendar, BookOpen, Award, Users } from "lucide-react";
 import ClassHeader from "./ClassHeader";
 import { ClassDetails } from "../../types/types";
@@ -7,6 +7,7 @@ import { useEffect } from "react";
 
 const ClassPage = () => {
   const { t } = useTranslation("classpage");
+  const navigate = useNavigate();
   const { classId } = useParams();
 
   // Scroll to the top of the page when the component mounts
@@ -177,7 +178,10 @@ const ClassPage = () => {
                 ))}
               </div>
 
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors duration-200 flex items-center justify-center gap-2">
+              <button
+                onClick={() => navigate(`/course/${classId}`)} // Redirect to the Course Content Page
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors duration-200 flex items-center justify-center gap-2"
+              >
                 {t("enrollNow")}
               </button>
             </div>
